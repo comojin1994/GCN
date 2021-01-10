@@ -4,9 +4,9 @@
 
 ### Result
 
-|Raw Graph||
+|Raw Graph|Raw Data|
 |:-:|:-:|
-|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/raw_graph.png"></img></p>||
+|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/raw_graph.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/raw_data_scatter.png"></img></p>|
 |**GCN without kernel regularizer**|**GCN Train Graph**|
 |<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GCN_1.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GCN_train_graph.png"></img></p>|
 |**DNN Model**|**DNN Train Graph**|
