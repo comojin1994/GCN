@@ -313,6 +313,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # Logs
-.logs/*
+.logs/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,macos,python,pycharm+all,jupyternotebooks
