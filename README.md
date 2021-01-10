@@ -2,6 +2,14 @@
 
 > Framework : Tensorflow 2.2
 
+### Result
+
+|Raw Graph|GCN without kernel regularizer|
+|:-:|:-:|
+|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/raw_graph.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GCN_1.png"></img></p>|
+|**DNN Model**||
+|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN.png"></img></p>||
+
 ### Reference
 
 1. [GRAPH CONVOLUTIONAL NETWORKS](https://tkipf.github.io/graph-convolutional-networks/)
