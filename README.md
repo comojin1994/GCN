@@ -26,3 +26,4 @@
 10. [Degree of the Vertex and Graph](http://www.geom.uiuc.edu/~doty/degree.html)
 11. [GCN-TF2.0](https://github.com/cshjin/GCN-TF2.0/tree/15232a7da73dbca0591a0f8551d7b0fc4495f3de)
 12. [Spatial Graph Convolutional Networks](https://arxiv.org/pdf/1909.05310.pdf)
+13. [GNN 소개 기초부터 논문까지](https://www.theteams.kr/teams/2849/post/73222)
