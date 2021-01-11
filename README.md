@@ -25,3 +25,4 @@
 9. [Beyond Graph Convolution Networks, Spatial vs Spectral 2](https://towardsdatascience.com/beyond-graph-convolution-networks-8f22c403955a)
 10. [Degree of the Vertex and Graph](http://www.geom.uiuc.edu/~doty/degree.html)
 11. [GCN-TF2.0](https://github.com/cshjin/GCN-TF2.0/tree/15232a7da73dbca0591a0f8551d7b0fc4495f3de)
+12. [Spatial Graph Convolutional Networks](https://arxiv.org/pdf/1909.05310.pdf)
