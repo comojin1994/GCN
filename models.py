@@ -22,7 +22,7 @@ class GCN(tf.keras.Model):
         x = self.dropout_2(x)
         A, x = self.graphConv_2([A, x])
         return x
-
+ 
 class DNN(tf.keras.Model):
     def __init__(self, filters, dropout):
         super(DNN, self).__init__(name='DNN')
