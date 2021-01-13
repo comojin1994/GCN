@@ -34,3 +34,28 @@ class GraphConv(tf.keras.layers.Layer):
         if self.activation:
             output = self.activation(output)
         return [inputs[0], output]
+
+class Readout(tf.keras.layers.Layer):
+    def __init__(self, filters, activation=None, mode='mlp'):
+        super(Readout, self).__init__()
+        
+        self.filters = filters
+        self.dense = tf.keras.layers.Dense(filters, use_bias=False)
+        self.activation = activation
+        self.mode = mode
+        
+    def call(self, x):
+        print(f'LOG >>> x\n{x}')
+        if self.mode == 'mean':
+            x = tf.math.reduce_mean(x, axis=1)
+            print(f'LOG >>> output\n{x}')
+            output = tf.math.reduce_sum(x, axis=0)
+        else:
+            x = self.dense(x)
+            print(f'LOG >>> weight\n{self.dense.weights}')
+            print(f'LOG >>> output\n{x}')
+            output = tf.math.reduce_sum(x, axis=1)
+        
+        if self.activation != None:
+            output = self.activation(output)
+        return output
