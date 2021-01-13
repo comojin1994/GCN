@@ -29,3 +29,4 @@
 13. [GNN 소개 기초부터 논문까지](https://www.theteams.kr/teams/2849/post/73222)
 14. [그래프 합성곱 신경망](https://untitledtblog.tistory.com/152)
 15. [Semi-Supervised Classification with Graph Convolutional Networks](https://arxiv.org/pdf/1609.02907.pdf)
+16. [Interpretation of Symmetric Normalised Graph Adjacency Matrix?](https://math.stackexchange.com/questions/3035968/interpretation-of-symmetric-normalised-graph-adjacency-matrix)
