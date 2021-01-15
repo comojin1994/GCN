@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras.layers import Dropout, Dense
 import config as C
-from layers import GraphConv
+from layers import GraphConv, InceptionBlock
 
 class GCN(tf.keras.Model):
     def __init__(self, filters, dropout):
@@ -9,11 +9,13 @@ class GCN(tf.keras.Model):
         self.dropout_1 = Dropout(C.dropout)
         self.graphConv_1 = GraphConv(filters,
                                     activation=tf.nn.relu,
-                                    use_bias=False)
+                                    use_bias=False,
+                                    kernel_regularizer=tf.keras.regularizers.l2(C.l2_reg))
         self.dropout_2 = Dropout(C.dropout)
         self.graphConv_2 = GraphConv(C.num_classes,
                                     activation=tf.nn.softmax,
-                                    use_bias=False)
+                                    use_bias=False,
+                                    kernel_regularizer=tf.keras.regularizers.l2(C.l2_reg))
         
     def call(self, input_tensor, training=False):
         A, x = input_tensor
@@ -44,3 +46,19 @@ class DNN(tf.keras.Model):
         x = self.dropout_2(x)
         output= self.dense_3(x)
         return output
+
+class InceptionGCN(tf.keras.Model):
+    def __init__(self, filters, dropout):
+        super(InceptionGCN, self).__init__(name='Inception_GCN')
+        self.dropout_1 = Dropout(C.dropout)
+        self.inception_1 = InceptionBlock(C.GCN_filters)
+        self.dropout_2 = Dropout(C.dropout)
+        self.inception_2 = InceptionBlock(C.GCN_filters)
+
+    def call(self, input_tensor, training=False):
+        A, x = input_tensor
+        x = self.dropout_1(x)
+        x = self.inception_1([A, x])
+        x = self.dropout_2(x)
+        x = self.inception_2([A, x])
+        return x

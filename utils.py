@@ -53,13 +53,19 @@ def draw_history(history, model_name, issave=False):
     ax1.set_xlabel('Epochs')
     ax1.set_ylabel('Acc')
     ax1.plot(history.history['acc'], color='red', label='Train_acc')
-    ax1.plot(history.history['val_acc'], color='blue', label='Val_acc')
+    try:
+        ax1.plot(history.history['val_acc'], color='blue', label='Val_acc')
+    except KeyError:
+        pass
     ax1.legend()
 
     ax2 = ax1.twinx()
     ax2.set_ylabel('Loss')
     ax2.plot(history.history['loss'], color='tomato', label='Train_loss')
-    ax2.plot(history.history['val_loss'], color='skyblue', label='Val_loss')
+    try:
+        ax2.plot(history.history['val_loss'], color='skyblue', label='Val_loss')
+    except KeyError:
+        pass
     ax2.legend()
     if issave:
         plt.savefig(f'./docs/{model_name}_train_graph.png')
