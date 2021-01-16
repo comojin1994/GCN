@@ -12,7 +12,7 @@
 |**DNN Model**|**DNN Train Graph**|
 |<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN_train_graph.png"></img></p>|
 |**DNN Model with metric learing**|**DNN with metric learing Train Graph**|
-|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN_train_graph.png"></img></p>|
+|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN_Metric.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN_Metric_train_graph.png"></img></p>|
 |**Inception GCN Model**|**Inception GCN Train Graph**|
 |<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/InceptionGCN.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/Inception GCN_train_graph.png"></img></p>|
 |**Residual GCN Model**|**Residual GCN Train Graph**|
