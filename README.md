@@ -7,10 +7,20 @@
 |Raw Graph|Raw Data|
 |:-:|:-:|
 |<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/raw_graph.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/raw_data_scatter.png"></img></p>|
-|**GCN without kernel regularizer**|**GCN Train Graph**|
+|**GCN**|**GCN Train Graph**|
 |<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GCN_1.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GCN_train_graph.png"></img></p>|
 |**DNN Model**|**DNN Train Graph**|
 |<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN_train_graph.png"></img></p>|
+|**DNN Model with metric learing**|**DNN with metric learing Train Graph**|
+|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN_train_graph.png"></img></p>|
+|**Inception GCN Model**|**Inception GCN Train Graph**|
+|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/InceptionGCN.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/Inception GCN_train_graph.png"></img></p>|
+|**Residual GCN Model**|**Residual GCN Train Graph**|
+|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/ResidualGCN.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/Residual GCN_train_graph.png"></img></p>|
+|**GatedSkipConnection GCN Model**|**GatedSkipConnection GCN Train Graph**|
+|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GatedSkipConnection.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GatedSkipConnection GCN_train_graph.png"></img></p>|
+|**Attention GCN Model**|**Attention GCN Train Graph**|
+|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/Attention.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/Attention GCN_train_graph.png"></img></p>|
 
 ### Reference
 
