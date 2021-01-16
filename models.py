@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras.layers import Dropout, Dense
 import config as C
-from layers import GraphConv, InceptionBlock, ResidualBlock
+from layers import GraphConv, InceptionBlock, ResidualBlock, GatedSkipConnectionBlock
 
 class GCN(tf.keras.Model):
     def __init__(self, filters, dropout):
@@ -82,4 +82,21 @@ class ResidualGCN(tf.keras.Model):
         output = tf.nn.softmax(x)
         return output
 
+class GatedSkipConnectionGCN(tf.keras.Model):
+    def __init__(self, dropout):
+        super(GatedSkipConnectionGCN, self).__init__(name='GatedSkipConnectionGCN')
         
+        self.dropout_1 = Dropout(dropout)
+        self.gscBlock_1 = GatedSkipConnectionBlock(C.GCN_filters, kernel_regularizer=tf.keras.regularizers.l2(C.l2_reg))
+        self.dropout_2 = Dropout(dropout)
+        self.gscBlock_2 = GatedSkipConnectionBlock(C.num_classes, kernel_regularizer=tf.keras.regularizers.l2(C.l2_reg))
+        
+    def call(self, input_tensor, training=False):
+        A, x = input_tensor
+        x = self.dropout_1(x)
+        x = self.gscBlock_1([A, x])
+        x = tf.nn.relu(x)
+        x = self.dropout_2(x)
+        x = self.gscBlock_2([A, x])
+        output = tf.nn.softmax(x)
+        return output

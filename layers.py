@@ -135,4 +135,58 @@ class ResidualBlock(tf.keras.layers.Layer):
         if tf.shape(x)[-1] != tf.shape(f)[-1]:
             x = self.dense(x)
         output = x + f
-        return output           
+        return output      
+
+class GatedSkipConnectionBlock(tf.keras.layers.Layer):
+    def __init__(self, filters, activation=None, kernel_initializer='glorot_uniform', bias_initializer='zeros', kernel_regularizer=None, bias_regularizer=None):
+        super(GatedSkipConnectionBlock, self).__init__()
+        
+        self.filters = filters
+        self.gcn = GraphConv(filters,
+                            activation=activation,
+                            use_bias=False,
+                            kernel_regularizer=tf.keras.regularizers.l2(C.l2_reg))
+        self.dense = tf.keras.layers.Dense(filters, use_bias=False)
+        self.kernel_initializer = kernel_initializer
+        self.kernel_regularizer = kernel_regularizer
+        self.bias_initializer = bias_initializer
+        self.bias_regularizer = bias_regularizer
+        
+    def build(self, input_shape):
+        print(f'LOG >>> input shape: {input_shape}')
+        self.weight_in = self.add_weight(name='weight_in',
+                                       shape=[input_shape[1][0], input_shape[1][0]],
+                                       initializer=self.kernel_initializer,
+                                       regularizer=self.kernel_regularizer,
+                                       trainable=True)
+        self.bias_in = self.add_weight(name='bias_in',
+                                       shape=[input_shape[1][0], self.filters],
+                                       initializer=self.bias_initializer,
+                                       regularizer=self.bias_regularizer,
+                                       trainable=True)
+        self.weight_out = self.add_weight(name='weight_out',
+                                       shape=[input_shape[1][0], input_shape[1][0]],
+                                       initializer=self.kernel_initializer,
+                                       regularizer=self.kernel_regularizer,
+                                       trainable=True)
+        self.bias_out = self.add_weight(name='bias_out',
+                                       shape=[input_shape[1][0], self.filters],
+                                       initializer=self.bias_initializer,
+                                       regularizer=self.bias_regularizer,
+                                       trainable=True)
+    
+    def call(self, input_tensor, training=False):
+        A, x = input_tensor
+        A, f = self.gcn([A, x])
+        if tf.shape(x)[-1] != tf.shape(f)[-1]:
+            x = self.dense(x)
+            
+        z = self.get_coefficient(x, f)
+        output = tf.math.multiply(z, f) + tf.math.multiply(1 - z, x)
+        return output
+    
+    def get_coefficient(self, x, f):
+        x = tf.matmul(self.weight_in, x) + self.bias_in
+        f = tf.matmul(self.weight_out, f) + self.bias_out
+        output = tf.nn.sigmoid(x + f)
+        return output     
