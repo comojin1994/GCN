@@ -2,7 +2,15 @@ import tensorflow as tf
 import config as C
 
 class GraphConv(tf.keras.layers.Layer):
-    def __init__(self, filters, activation=None, bn=False, use_bias=True, kernel_initializer='glorot_uniform', bias_initializer='zeros', kernel_regularizer=None, bias_regularizer=None):
+    def __init__(self, 
+                            filters, 
+                            activation=None, 
+                            bn=False, 
+                            use_bias=True, 
+                            kernel_initializer='glorot_uniform', 
+                            bias_initializer='zeros', 
+                            kernel_regularizer=None, 
+                            bias_regularizer=None):
         super(GraphConv, self).__init__()
         self.filters = filters
         self.activation = activation
@@ -120,25 +128,45 @@ class InceptionBlock(tf.keras.layers.Layer):
         return output
         
 class ResidualBlock(tf.keras.layers.Layer):
-    def __init__(self, filters, activation=None):
+    def __init__(self, 
+                            filters, 
+                            activation=None, 
+                            inception=False, 
+                            ):
         super(ResidualBlock, self).__init__()
         
         self.gcn = GraphConv(filters,
                             activation=activation,
                             use_bias=False,
                             kernel_regularizer=tf.keras.regularizers.l2(C.l2_reg))
+        self.isinception = inception
+        if self.isinception:
+            self.inception = InceptionBlock(filters, activation=tf.nn.relu)
         self.dense = tf.keras.layers.Dense(filters, use_bias=False)
         
     def call(self, input_tensor, training=False):
         A, x = input_tensor
-        A, f = self.gcn([A, x])
+        if self.isinception:
+            f = self.inception([A, x])
+        else:
+            A, f = self.gcn([A, x])
+
         if tf.shape(x)[-1] != tf.shape(f)[-1]:
             x = self.dense(x)
         output = x + f
         return output      
 
 class GatedSkipConnectionBlock(tf.keras.layers.Layer):
-    def __init__(self, filters, activation=None, kernel_initializer='glorot_uniform', bias_initializer='zeros', kernel_regularizer=None, bias_regularizer=None):
+    def __init__(self, 
+                            filters,
+                            activation=None,
+                            inception=False,
+                            islast=False,
+                            isgate=True,
+                            kernel_initializer='glorot_uniform', 
+                            bias_initializer='zeros', 
+                            kernel_regularizer=None, 
+                            bias_regularizer=None):
         super(GatedSkipConnectionBlock, self).__init__()
         
         self.filters = filters
@@ -146,6 +174,11 @@ class GatedSkipConnectionBlock(tf.keras.layers.Layer):
                             activation=activation,
                             use_bias=False,
                             kernel_regularizer=tf.keras.regularizers.l2(C.l2_reg))
+        self.isinception= inception
+        if self.isinception:
+            self.inception = InceptionBlock(filters, activation=tf.nn.relu, isLast=islast)
+        self.isgate = isgate
+
         self.dense = tf.keras.layers.Dense(filters, use_bias=False)
         self.kernel_initializer = kernel_initializer
         self.kernel_regularizer = kernel_regularizer
@@ -177,12 +210,21 @@ class GatedSkipConnectionBlock(tf.keras.layers.Layer):
     
     def call(self, input_tensor, training=False):
         A, x = input_tensor
-        A, f = self.gcn([A, x])
+
+        if self.isinception:
+            f = self.inception([A, x])
+        else:
+            A, f = self.gcn([A, x])
+
         if tf.shape(x)[-1] != tf.shape(f)[-1]:
             x = self.dense(x)
-            
-        z = self.get_coefficient(x, f)
-        output = tf.math.multiply(z, f) + tf.math.multiply(1 - z, x)
+        
+        if self.isgate:
+            z = self.get_coefficient(x, f)
+            output = tf.math.multiply(z, f) + tf.math.multiply(1 - z, x)
+        else:
+            output = x + f
+
         return output
     
     def get_coefficient(self, x, f):

@@ -64,13 +64,13 @@ class InceptionGCN(tf.keras.Model):
         return x
 
 class ResidualGCN(tf.keras.Model):
-    def __init__(self, dropout):
+    def __init__(self, dropout, inception=False):
         super(ResidualGCN, self).__init__(name='ResidualGCN')
         
         self.dropout_1 = Dropout(dropout)
-        self.resBlock_1 = ResidualBlock(C.GCN_filters)
+        self.resBlock_1 = ResidualBlock(C.GCN_filters, inception=inception)
         self.dropout_2 = Dropout(dropout)
-        self.resBlock_2 = ResidualBlock(C.num_classes)
+        self.resBlock_2 = ResidualBlock(C.num_classes, inception=inception)
         
     def call(self, input_tensor, training=False):
         A, x = input_tensor
@@ -83,13 +83,21 @@ class ResidualGCN(tf.keras.Model):
         return output
 
 class GatedSkipConnectionGCN(tf.keras.Model):
-    def __init__(self, dropout):
+    def __init__(self, dropout, inception=False, isgate=True):
         super(GatedSkipConnectionGCN, self).__init__(name='GatedSkipConnectionGCN')
         
         self.dropout_1 = Dropout(dropout)
-        self.gscBlock_1 = GatedSkipConnectionBlock(C.GCN_filters, kernel_regularizer=tf.keras.regularizers.l2(C.l2_reg))
+        self.gscBlock_1 = GatedSkipConnectionBlock(C.GCN_filters,
+                                                                                        inception=inception,
+                                                                                        islast=False,
+                                                                                        isgate=isgate,
+                                                                                         kernel_regularizer=tf.keras.regularizers.l2(C.l2_reg))
         self.dropout_2 = Dropout(dropout)
-        self.gscBlock_2 = GatedSkipConnectionBlock(C.num_classes, kernel_regularizer=tf.keras.regularizers.l2(C.l2_reg))
+        self.gscBlock_2 = GatedSkipConnectionBlock(C.num_classes,
+                                                                                        inception=inception,
+                                                                                        islast=False,
+                                                                                        isgate=isgate,
+                                                                                        kernel_regularizer=tf.keras.regularizers.l2(C.l2_reg))
         
     def call(self, input_tensor, training=False):
         A, x = input_tensor
