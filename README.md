@@ -11,8 +11,6 @@
 |<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GCN_1.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GCN_train_graph.png"></img></p>|
 |**DNN Model**|**DNN Train Graph**|
 |<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN_train_graph.png"></img></p>|
-|**DNN Model with metric learing**|**DNN with metric learing Train Graph**|
-|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN_Metric.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/DNN_Metric_train_graph.png"></img></p>|
 |**Inception GCN Model**|**Inception GCN Train Graph**|
 |<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/InceptionGCN.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/Inception GCN_train_graph.png"></img></p>|
 |**Residual GCN Model**|**Residual GCN Train Graph**|
@@ -41,3 +39,4 @@
 15. [Semi-Supervised Classification with Graph Convolutional Networks](https://arxiv.org/pdf/1609.02907.pdf)
 16. [Interpretation of Symmetric Normalised Graph Adjacency Matrix?](https://math.stackexchange.com/questions/3035968/interpretation-of-symmetric-normalised-graph-adjacency-matrix)
 17. [Precision(정밀도), Recall(재현율) and Accuracy(정확도)](https://sumniya.tistory.com/26)
+18. [Deeply learning molecular structure-property relation- ships using attention- and gate-augmented graph con- volutional network](https://arxiv.org/pdf/1805.10988.pdf)
