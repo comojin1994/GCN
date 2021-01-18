@@ -40,3 +40,4 @@
 16. [Interpretation of Symmetric Normalised Graph Adjacency Matrix?](https://math.stackexchange.com/questions/3035968/interpretation-of-symmetric-normalised-graph-adjacency-matrix)
 17. [Precision(정밀도), Recall(재현율) and Accuracy(정확도)](https://sumniya.tistory.com/26)
 18. [Deeply learning molecular structure-property relation- ships using attention- and gate-augmented graph con- volutional network](https://arxiv.org/pdf/1805.10988.pdf)
+19. [GRAPH ATTENTION NETWORKS](https://arxiv.org/pdf/1710.10903.pdf)
