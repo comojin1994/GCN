@@ -1,6 +1,9 @@
 # Graph Convolutional Network
 
-> Framework : Tensorflow 2.2
+> Framework : Tensorflow 2.4, Spektral
+
+### Installation
+`$ pip install requirements.txt`
 
 ### Total Result
 <p align="center">
