@@ -2,7 +2,12 @@
 
 > Framework : Tensorflow 2.2
 
-### Result
+### Total Result
+<p align="center">
+   <img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/totalResult.png"></img>
+</p>
+
+### Result Detail
 
 |Raw Graph|Raw Data|
 |:-:|:-:|
@@ -19,6 +24,14 @@
 |<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GatedSkipConnection.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GatedSkipConnection GCN_train_graph.png"></img></p>|
 |**Attention GCN Model**|**Attention GCN Train Graph**|
 |<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/Attention.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/Attention GCN_train_graph.png"></img></p>|
+|**Residual Inception GCN Model**|**Residual Inception GCN Train Graph**|
+|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/ResidualInceptionGCN.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/Residual Inception GCN_train_graph.png"></img></p>|
+|**Residual Attention GCN Model**|**Residual Attention GCN Train Graph**|
+|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/ResidualAttentionGCN.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/Residual Attention GCN_train_graph.png"></img></p>|
+|**GatedSkipConnection Inception GCN Model**|**GatedSkipConnection Inception GCN Train Graph**|
+|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GatedSkipConnectionInceptionGCN.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GatedSkipConnection Inception GCN_train_graph.png"></img></p>|
+|**GatedSkipConnection Attention GCN Model**|**GatedSkipConnection Attention GCN Train Graph**|
+|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GatedSkipConnectionAttentionGCN.png"></img></p>|<p align="center"><img width="400pixel" src="https://github.com/comojin1994/GCN/blob/develop/docs/GatedSkipConnection Attention GCN_train_graph.png"></img></p>|
 
 ### Reference
 
