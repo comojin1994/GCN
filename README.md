@@ -57,3 +57,4 @@
 17. [Precision(정밀도), Recall(재현율) and Accuracy(정확도)](https://sumniya.tistory.com/26)
 18. [Deeply learning molecular structure-property relation- ships using attention- and gate-augmented graph con- volutional network](https://arxiv.org/pdf/1805.10988.pdf)
 19. [GRAPH ATTENTION NETWORKS](https://arxiv.org/pdf/1710.10903.pdf)
+20. [Spectral GCN 은… 사드세요](https://tootouch.github.io/research/spectral_gcn/?fbclid=IwAR3wEA-MlgLZSzGCs1CY-4zW4AvX9wzGCRtg36TxI2z9rXGCwjhKXBm5NCw)
